@@ -78,12 +78,13 @@
               <th>Even with larger capacity</th>
               </tr>
           </thead>
+          
           <tbody id="primerTabla">
-            <!-- <tr>
-              <td>&nbsp;</td>
-              <td>&nbsp;</td>
-              <td>&nbsp;</td>
-            </tr> -->
+             <tr>
+              <td>{{ eventoMayorGente() }}</td>
+              <td>{{eventoMenosGente() }}</td>
+              <td>{{eventoConMasCapacidad() }} </td>
+            </tr> 
           </tbody>
         </table>
         <table>
@@ -96,11 +97,11 @@
             </tr>
           </thead>
           <tbody id="segundaTabla">
-            <!-- <tr>
-              <td>&nbsp;</td>
-              <td>&nbsp;</td>
-              <td>&nbsp;</td>
-            </tr> -->
+            <tr v-for="category in categoriasFuturo" v-bind:key="category">
+              <td>{{ category }}</td>
+              <td>{{ calcularRevenues(category).toLocaleString() }}</td>
+              <td>{{ calcularPorcentajeAttendance(category).toFixed(2) }}%</td>
+            </tr>
             
           </tbody>
        </table>
@@ -114,11 +115,11 @@
           </tr>
         </thead>
         <tbody id="tercerTabla">
-          <!-- <tr>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-          </tr> -->
+          <tr v-for="category in categoriasPasado" v-bind:key="category">
+            <td>{{ category }}</td>
+            <td>{{ calcularRevenuesPasado(category).toLocaleString() }}</td>
+            <td>{{ calcularPorcentajeAttendancePasado(category).toFixed(2) }}%</td>
+          </tr>
          
         </tbody>
        </table>
